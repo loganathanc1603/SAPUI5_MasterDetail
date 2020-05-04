@@ -6,7 +6,7 @@ xmlns:html="http://www.w3.org/1999/xhtml" xmlns:semantic="sap.m.semantic">
 	<semantic:MasterPage title="Master Page" navButtonPress="onNavBack" showNavButton="false">
 		<semantic:subHeader>
 			<Toolbar>
-				<SearchField showRefreshButton="{= !${device>/support/touch} }" search="onSearch"/>
+				<SearchField  search="onSearch"/>
 			</Toolbar>
 		</semantic:subHeader>
 		<semantic:content>

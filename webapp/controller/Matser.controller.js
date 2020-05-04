@@ -11,11 +11,21 @@ sap.ui.define([
 
 		onSelectionChange: function (evt) {
 			var oEmpId = evt.getParameter("listItem").getBindingContextPath().substr(1);
-			this.oRouter.navTo("Detail", {EmpId:oEmpId}, true);
+			this.oRouter.navTo("Detail", {
+				EmpId: oEmpId
+			}, true);
 		},
-		
-		onSearch: function(){
-			
+
+		onSearch: function (evt) {
+			var sQuery = evt.getParameter("value"),
+				oBindings = this.byId("mListId").getBinding("items"),
+				oList = this.byId("mListId"),
+				aFilters = [];
+
+			if (sQuery) {
+				aFilters.push(new sap.ui.model.Filter("EmployeeID", sap.ui.model.FilterOperator.Contains, sQuery));
+			}
+			oBindings.filter(aFilters);
 		}
 
 	});
