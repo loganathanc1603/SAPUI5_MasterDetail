@@ -1,0 +1,4 @@
+<mvc:View controllerName="com.sap.Matser_Detail_App.controller.App" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true" xmlns="sap.m">
+	<SplitApp id="mAppId"></SplitApp>
+</mvc:View>

@@ -1,0 +1,136 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "com.sap.Matser_Detail_App",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZGW_EMP_DETAILS_SRV": {
+				"uri": "/sap/opu/odata/sap/ZGW_EMP_DETAILS_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.sap.Matser_Detail_App.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.sap.Matser_Detail_App.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Client",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "ZGW_EMP_DETAILS_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.sap.Matser_Detail_App.view",
+				"controlAggregation": "detailPages",
+				"controlId": "mAppId",
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": ["Matser"]
+				}
+			},
+			"routes": [{
+				"name": "Matser",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Matser"]
+			}, {
+				"name": "Detail",
+				"pattern": "Detail/(:EmpId:)",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Matser", "Detail"]
+			}],
+			"targets": {
+				"TargetApp": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "App"
+				},
+				"Matser": {
+					"viewType": "XML",
+					"viewName": "Matser",
+					"viewId": "Master",
+					"controlAggregation": "masterPages",
+					"controlId": "mAppId",
+					"viewLevel": 1
+				},
+				"Detail": {
+					"viewType": "XML",
+					"viewName": "Detail",
+					"viewId": "Detail",
+					"controlId": "mAppId",
+					"controlAggregation": "detailPages",
+					"viewLevel": 2
+				}
+			}
+		}
+	}
+}

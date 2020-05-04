@@ -1,0 +1,93 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:semantic="sap.m.semantic" controllerName="com.sap.Matser_Detail_App.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="Detail Page"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<f:SimpleForm title="Employee Basic Information" minWidth="1024" editable="true" maxContainerCols="2" layout="ResponsiveGridLayout"
+				labelSpanL="5" labelSpanM="4" emptySpanL="6" emptySpanM="0" columnsL="5" columnsM="2">
+				<f:content>
+					<core:Title/>
+					<Label text="Employee ID"/>
+					<Input id="mIpEmpId" value="{EmployeeID}" editable="false">
+						<layoutData>
+							<l:GridData span="XL4 L4 M5 S12"/>
+						</layoutData>
+					</Input>
+					<Label text="Employee Name"/>
+					<Input value="{EmployeeName}" editable="false">
+						<layoutData>
+							<l:GridData span="XL4 L4 M5 S12"/>
+						</layoutData>
+					</Input>
+					<Label text="Employee Age"/>
+					<Input value="{EmployeeAge}" editable="false">
+						<layoutData>
+							<l:GridData span="XL4 L4 M5 S12"/>
+						</layoutData>
+					</Input>
+					<core:Title/>
+					<Label text="Employee Mobile"/>
+					<Input value="{EmployeeMobile}" editable="false">
+						<layoutData>
+							<l:GridData span="XL4 L4 M5 S12"/>
+						</layoutData>
+					</Input>
+					<Label text="Employee Position"/>
+					<Input value="{EmployeePosition}" editable="false">
+						<layoutData>
+							<l:GridData span="XL4 L4 M5 S12"/>
+						</layoutData>
+					</Input>
+				</f:content>
+			</f:SimpleForm>
+			<Table id="mTblEmpAdr" items="{path:'LocalModel>/EmpAddrItems'}">
+				<headerToolbar>
+					<Toolbar>
+						<content>
+							<Title text="Employee Address Information" level="H2"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://add" press="onPrsBtnAddEmpAdr"/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Employee Id"/>
+					</Column>
+					<!-- demandPopin true enable the responsiveness for mobile and tablet. for this need to define the minScreenWidth -->
+					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
+						<Text text="Employee Street"/>
+					</Column>
+					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
+						<Text text="Employee City"/>
+					</Column>
+					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
+						<Text text="Employee Country"/>
+					</Column>
+					<Column>
+						<Text text="Employee State"/>
+					</Column>
+					<Column>
+						<Text text="Employee Region"/>
+					</Column>
+				</columns>
+				<!--items table aggregation-->
+				<items>
+					<ColumnListItem >
+						<cells>
+							<ObjectIdentifier title="{LocalModel>EmployeeID}"/>
+							<Input value="{LocalModel>EmployeeAddrStreet}"/>
+							<Input value="{LocalModel>EmployeeAddrCity}"/>
+							<Input value="{LocalModel>EmployeeAddrCountry}"/>
+							<Input value="{LocalModel>EmployeeAddrState}"/>
+							<Input value="{LocalModel>EmployeeAddrRegion}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+		<semantic:customFooterContent>
+			<Button text="Save" type="Emphasized" press="onPrsBtnSave"/>
+		</semantic:customFooterContent>
+	</semantic:DetailPage>
+</mvc:View>
