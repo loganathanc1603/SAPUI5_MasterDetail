@@ -1,0 +1,1316 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZFLM_WORKID_MAINT_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Project_Id" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectDesc" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Project Description"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UserName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="NV_PRJID_ADMN" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJID_ADMN" FromRole="FromRole_AS_PRJID_ADMN"
+					ToRole="ToRole_AS_PRJID_ADMN"/><NavigationProperty Name="PRJCT_DDOHOA_NV_D2" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDOHOA_D2" FromRole="FromRole_AS_PRJT_DDOHOA_D2"
+					ToRole="ToRole_AS_PRJT_DDOHOA_D2"/><NavigationProperty Name="PRJCT_TECH_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJT_TECH" FromRole="FromRole_AS_PRJT_TECH"
+					ToRole="ToRole_AS_PRJT_TECH"/><NavigationProperty Name="PRJCT_AGMNT_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJT_AGMNT" FromRole="FromRole_AS_PRJT_AGMNT"
+					ToRole="ToRole_AS_PRJT_AGMNT"/><NavigationProperty Name="PRJCT_DDOCODE_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDOCODE" FromRole="FromRole_AS_PRJT_DDOCODE"
+					ToRole="ToRole_AS_PRJT_DDOCODE"/><NavigationProperty Name="PRJCT_DDOHOA_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDO_HOA" FromRole="FromRole_AS_PRJT_DDO_HOA"
+					ToRole="ToRole_AS_PRJT_DDO_HOA"/></EntityType>
+			<EntityType Name="Transanction_id" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechDesc" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Tech Sanction ID Des"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId_Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Vendor_No" sap:content-version="1">
+				<Key><PropertyRef Name="Vendor"/></Key><Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="VenDesc" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Admin_create" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId_O" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CatWork" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Single-Character Flag"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAmt" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Value (9,2)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Character Field Length = 10"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanDate" Type="Edm.String" sap:unicode="false" sap:label="SanDate" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="HOA" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="HOA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Flag" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Other_FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Revise_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanRefNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PrjtDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Source_HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SOURCE_HOA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Source_DDO" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Source_DDO" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Fund_Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sl_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Message" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="Admin_tech" Relationship="ZFLM_WORKID_MAINT_SRV.As_TechId" FromRole="FromRole_As_TechId" ToRole="ToRole_As_TechId"/><NavigationProperty Name="Agrmnt_Hoa" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_HOA" FromRole="FromRole_AS_AGRMNT_HOA"
+					ToRole="ToRole_AS_AGRMNT_HOA"/><NavigationProperty Name="Admin_tech_As" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT1" FromRole="FromRole_AS_AGRMNT1"
+					ToRole="ToRole_AS_AGRMNT1"/><NavigationProperty Name="Tech_Agrmnt_NV" Relationship="ZFLM_WORKID_MAINT_SRV.As_Tech_Agmnt" FromRole="FromRole_As_Tech_Agmnt"
+					ToRole="ToRole_As_Tech_Agmnt"/><NavigationProperty Name="DDO_HOA_NV" Relationship="ZFLM_WORKID_MAINT_SRV.As_admin_DDOtoHOA" FromRole="FromRole_As_admin_DDOtoHOA"
+					ToRole="ToRole_As_admin_DDOtoHOA"/><NavigationProperty Name="NAV_AS_SCRFUND" Relationship="ZFLM_WORKID_MAINT_SRV.AS_SCR_FUND" FromRole="FromRole_AS_SCR_FUND"
+					ToRole="ToRole_AS_SCR_FUND"/><NavigationProperty Name="NAV_AS_PAYOUT" Relationship="ZFLM_WORKID_MAINT_SRV.AS_Payout" FromRole="FromRole_AS_Payout"
+					ToRole="ToRole_AS_Payout"/><NavigationProperty Name="Par1_nv" Relationship="ZFLM_WORKID_MAINT_SRV.As_par1" FromRole="FromRole_As_par1" ToRole="ToRole_As_par1"/><NavigationProperty Name="ADMIN_DDO_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_DDO1" FromRole="FromRole_AS_DDO1" ToRole="ToRole_AS_DDO1"/></EntityType>
+			<EntityType Name="TechId_Create" sap:content-version="1">
+				<Key><PropertyRef Name="TechId"/></Key><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DeptName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAmt" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Sanction Amount"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthyId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthyName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanDate" Type="Edm.String" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Character Field Length = 10"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tender" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId_O" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanRefNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Revise_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="TECH_AGM_NAV" Relationship="ZFLM_WORKID_MAINT_SRV.As_Tech_Agmnt_c" FromRole="FromRole_As_Tech_Agmnt_c"
+					ToRole="ToRole_As_Tech_Agmnt_c"/></EntityType>
+			<EntityType Name="HeadOfAcnt" sap:content-version="1">
+				<Key><PropertyRef Name="Hoa"/></Key><Property Name="Hoa" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="HOA" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Sanauth_f4" sap:content-version="1">
+				<Key><PropertyRef Name="Userid"/></Key><Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Tech Sanction ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TechDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Tech Sanction ID Des"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HOA_F4" sap:content-version="1">
+				<Key><PropertyRef Name="Deptcode"/></Key><Property Name="Deptcode" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Department" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Head Of Account" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HoaDesc" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="c" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Bank_Details" sap:content-version="1">
+				<Key><PropertyRef Name="Ifsc"/></Key><Property Name="Ifsc" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Bank Key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bankadd" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Text (200 char)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bankname" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Bank name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BankGau" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BankGau_Amt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bank_ValFrom" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Bank_ValTo" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Agmnt_RefNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BankGau_Rev" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Agmnt_BnkDtls" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Agreement Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BankGauNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Gaurentee No"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ChallanNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Challan No"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ValidityFrom" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ValidityTo" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Challan_val" sap:content-version="1">
+				<Key><PropertyRef Name="Challan_No"/><PropertyRef Name="Challan_Date"/></Key><Property Name="Challan_No" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Challan Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Amnt" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:label="Challan Amount"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Challan Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Remitter_Name" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Purpose" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Deptcode_DDO" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/><PropertyRef Name="Deptcode"/><PropertyRef Name="Ddocode"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deptcode" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Top Fnds Center"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ddocode" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="DDO Code / Fund Cent"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DdoDesc" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="c" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="DDO_HOA_NV1" Relationship="ZFLM_WORKID_MAINT_SRV.As_DDO_HOA1" FromRole="ToRole_As_DDO_HOA1"
+					ToRole="FromRole_As_DDO_HOA1"/><NavigationProperty Name="child_nv" Relationship="ZFLM_WORKID_MAINT_SRV.As_child" FromRole="FromRole_As_child" ToRole="ToRole_As_child"/></EntityType>
+			<EntityType Name="DDOCode_HOA" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/><PropertyRef Name="Deptcode"/><PropertyRef Name="Ddocode"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deptcode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Ddocode" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="DDO Code / Fund Cent"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Head Of Account" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DdoDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CatWork" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BUD_CTRL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="EDM_Cash" sap:content-version="1">
+				<Key><PropertyRef Name="Challan_No"/></Key><Property Name="Challan_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Date" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Remitter_Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Bank" sap:content-version="1">
+				<Key><PropertyRef Name="BankGau"/></Key><Property Name="BankGau" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BankGau_Rev" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bank_ValFrom" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Bank_ValTo" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="BankGau_Amt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bankadd" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bankname" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Ifsc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Guid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Purpose" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sanc_Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bank_Genuinity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BG_Returned" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="EDM" sap:content-version="1">
+				<Key><PropertyRef Name="Challan_No"/></Key><Property Name="Challan_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Date" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Remitter_Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Purpose" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="AGMNT" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Agmnt_RefNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntDate" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="AgmntDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgEstVal" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EstVal" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Agmnt_Auth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vendor" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validity_From" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Validity_To" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Tender" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TndDis" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Period" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EPC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Entrust_Meth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Num_Bills" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Defect_Period" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FinalBill_paid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Gross_Paid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Net_Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deductions" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Revise_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Complete_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId_O" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="dlp_days" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Maint_Period" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Cmu_PriceAdjs" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Ext_Val_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Gross_FLM" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deduct_FLM" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NoBillFLM" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AdjPriFLM" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Leg_Gross" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Leg_Ded" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tot_Bill_Paid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Adj_price" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tot_adj" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntCancel" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="AGMNT_BANK_D_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_BANK" FromRole="FromRole_AS_AGMNT_BANK"
+					ToRole="ToRole_AS_AGMNT_BANK"/><NavigationProperty Name="AGMNT_EOAT_D_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_EOAT_D" FromRole="FromRole_AS_AGMNT_EOAT_D"
+					ToRole="ToRole_AS_AGMNT_EOAT_D"/><NavigationProperty Name="AGMNT_GROSS_D_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_GROSS_D" FromRole="FromRole_AS_AGMNT_GROSS_D"
+					ToRole="ToRole_AS_AGMNT_GROSS_D"/><NavigationProperty Name="AGMNT_DEDUCT_D_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_DEDUCT_D" FromRole="FromRole_AS_AGMNT_DEDUCT_D"
+					ToRole="ToRole_AS_AGMNT_DEDUCT_D"/><NavigationProperty Name="AGMNt_EMDTLS_NV" Relationship="ZFLM_WORKID_MAINT_SRV.As_AgMnt_EMD" FromRole="FromRole_As_AgMnt_EMD"
+					ToRole="ToRole_As_AgMnt_EMD"/><NavigationProperty Name="AGMNT_CHLN_D_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_CHLN" FromRole="FromRole_AS_AGMNT_CHLN"
+					ToRole="ToRole_AS_AGMNT_CHLN"/><NavigationProperty Name="AGMNT_PRJTECH_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_PRJTECH" FromRole="FromRole_AS_AGMNT_PRJTECH"
+					ToRole="ToRole_AS_AGMNT_PRJTECH"/><NavigationProperty Name="AGMNT_PRJID_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_PRJTID" FromRole="FromRole_AS_AGMNT_PRJTID"
+					ToRole="ToRole_AS_AGMNT_PRJTID"/></EntityType>
+			<EntityType Name="Val_Buttons" sap:content-version="1">
+				<Key><PropertyRef Name="UserId"/></Key><Property Name="UserId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TechID_D" sap:content-version="1">
+				<Key><PropertyRef Name="TechId"/></Key><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId_Desc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Total_Amnt" Type="Edm.Decimal" Precision="31" Scale="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="SanDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId_Total" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AS_Dept" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="NV_TECHID_AMTVAL" Relationship="ZFLM_WORKID_MAINT_SRV.AS_TECHID_AMTVAL" FromRole="FromRole_AS_TECHID_AMTVAL"
+					ToRole="ToRole_AS_TECHID_AMTVAL"/></EntityType>
+			<EntityType Name="AgmntID_D" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntID"/></Key><Property Name="AgmntID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntID_Desc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Admin_F4" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId_Desc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TechId_Amtval" sap:content-version="1">
+				<Key><PropertyRef Name="TechId"/></Key><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Total_Amnt" Type="Edm.Decimal" Precision="31" Scale="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="SanDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId_Total" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Edit_ButtonVal" sap:content-version="1">
+				<Key><PropertyRef Name="UserId"/></Key><Property Name="UserId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AS" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="TS" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="AG" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Source_Funds" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="BankRev_F4" sap:content-version="1">
+				<Key><PropertyRef Name="BankGau"/></Key><Property Name="BankGau" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Purpose" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="EOAT_F4" sap:content-version="1">
+				<Key><PropertyRef Name="AGMNT_AUTH"/></Key><Property Name="AGMNT_AUTH" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AGMNT_AUTHDESC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Bank_F4" sap:content-version="1">
+				<Key><PropertyRef Name="BankGau"/></Key><Property Name="BankGau" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BankGau_Desc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TS_AmntVal" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TS_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Valid_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Bill_EMDtls" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bill_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bill_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bill_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Purpose" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Vendor_Bnk_dtls" sap:content-version="1">
+				<Key><PropertyRef Name="Vendor_Code"/></Key><Property Name="Vendor_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Ifsc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Account_no" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sno" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="AS_Rev_Flag" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId_Desc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FLM_BILLS_LOG" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TotGross" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TotDeduct" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TotAdjPri" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TotNetAmt" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="AGMNT_BILLIST" Relationship="ZFLM_WORKID_MAINT_SRV.AS_FLM_BILLOG" FromRole="FromRole_AS_FLM_BILLOG"
+					ToRole="ToRole_AS_FLM_BILLOG"/></EntityType>
+			<EntityType Name="AGMNT_BILLIST" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="GrossPaid" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deduct" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AdjPrice" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NetAmt" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FLM_COST_LOG" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="COST_DIST_LIST" Relationship="ZFLM_WORKID_MAINT_SRV.AS_COST_LIST" FromRole="FromRole_AS_COST_LIST"
+					ToRole="ToRole_AS_COST_LIST"/></EntityType>
+			<EntityType Name="COST_DIST_LIST" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AsNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AsAmt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TsNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TsAmt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FLM_DEDUCT" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="DEDUCT_LIST" Relationship="ZFLM_WORKID_MAINT_SRV.AS_DEDU_LIST" FromRole="FromRole_AS_DEDU_LIST"
+					ToRole="ToRole_AS_DEDU_LIST"/></EntityType>
+			<EntityType Name="DEDUCT_LIST" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeduType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Source_HOA" sap:content-version="1">
+				<Key><PropertyRef Name="Dept_Code"/></Key><Property Name="Dept_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DEPT_CODE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BUD_CTRL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CatWork" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Source_DDO" sap:content-version="1">
+				<Key><PropertyRef Name="HOA"/></Key><Property Name="HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="DDO_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DDO_Desc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Upd_header" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CatWork" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="San_FrmDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="San_ToDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="AS_UPD_HDR_PAYOUT" Relationship="ZFLM_WORKID_MAINT_SRV.AS_Upload_Payout" FromRole="FromRole_AS_Upload_Payout"
+					ToRole="ToRole_AS_Upload_Payout"/><NavigationProperty Name="AS_UPD_HDR_SCRFNDS" Relationship="ZFLM_WORKID_MAINT_SRV.AS_Upload_SCRFNDS" FromRole="FromRole_AS_Upload_SCRFNDS"
+					ToRole="ToRole_AS_Upload_SCRFNDS"/><NavigationProperty Name="AS_UPD_HDR_DDO" Relationship="ZFLM_WORKID_MAINT_SRV.AS_Upload_DDO" FromRole="FromRole_AS_Upload_DDO"
+					ToRole="ToRole_AS_Upload_DDO"/><NavigationProperty Name="AS_UPD_HDR_AS" Relationship="ZFLM_WORKID_MAINT_SRV.AS_Upload_HDR" FromRole="FromRole_AS_Upload_HDR"
+					ToRole="ToRole_AS_Upload_HDR"/><NavigationProperty Name="Nav_Upload" Relationship="ZFLM_WORKID_MAINT_SRV.AS_UPLOAD" FromRole="FromRole_AS_UPLOAD" ToRole="ToRole_AS_UPLOAD"/></EntityType>
+			<EntityType Name="Upd_Item" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId_O" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CatWork" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanAmt" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Other_FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Revise_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanRefNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PrjtDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Source_HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Source_DDO" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Fund_Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Ddocode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DdoDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Pic_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Report_ASHeader" sap:content-version="1">
+				<Key><PropertyRef Name="DeptCode"/></Key><Property Name="DeptCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CatWork" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="San_FrmDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="San_ToDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId_O" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanAmt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Revise_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanRefNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PrjtDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Dept_Code" sap:content-version="1">
+				<Key><PropertyRef Name="HOA"/></Key><Property Name="HOA" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="char24" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Character Field Length = 10"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DeptDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Agmnt_create" sap:content-version="1">
+				<Key><PropertyRef Name="TechId"/></Key><Property Name="AgEstVal" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Agreement Cntrc Val"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Agmnt_Auth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Agmnt_RefNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Agreement Reference No" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AgmntDate" Type="Edm.String" sap:unicode="false" sap:label="Agreement Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntDesc" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Agreement Desc"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId_O" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bank_ValFrom" Type="Edm.String" sap:unicode="false" sap:label="BanKvalFrom" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Bank_ValTo" Type="Edm.String" sap:unicode="false" sap:label="BankValTo" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BankGau" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Bank Guarantee"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BankGau_Amt" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Bank Guarentee Amt"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Challan Amnt" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Challan_Date" Type="Edm.String" sap:unicode="false" sap:label="Challan Date" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Challan_No" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Challan No"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Complete_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deductions" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Defect_Period" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Attachment Details"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Entrust_Meth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EPC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="EstVal" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Estimated Cntrct Val"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FinalBill_paid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Gross_Paid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="IFSC_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IFSC Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Net_Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Num_Bills" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Period" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Revise_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Tech Sanction ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tender" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TndDis" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Tender Premium/Disc"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Validity_From" Type="Edm.String" sap:unicode="false" sap:label="Validity_From" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validity_To" Type="Edm.String" sap:unicode="false" sap:label="Validity_To" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="dlp_days" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Maint_Period" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Cmu_PriceAdjs" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Ext_Val_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Leg_Gross" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Leg_Ded" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tot_Bill_Paid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntCancel" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="Agmnt_BnkDtls" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_BANK" FromRole="FromRole_AS_AGRMNT_BANK"
+					ToRole="ToRole_AS_AGRMNT_BANK"/><NavigationProperty Name="AGRMNT_ADMIN_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_ADMIN" FromRole="FromRole_AS_AGRMNT_ADMIN"
+					ToRole="ToRole_AS_AGRMNT_ADMIN"/><NavigationProperty Name="AGRMNT_TECH_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_TECH" FromRole="FromRole_AS_AGRMNT_TECH"
+					ToRole="ToRole_AS_AGRMNT_TECH"/><NavigationProperty Name="AGRMNT_EDM_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_EDM" FromRole="FromRole_AS_AGRMNT_EDM"
+					ToRole="ToRole_AS_AGRMNT_EDM"/><NavigationProperty Name="AGRMNT_BANK_NV1" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_BANK1" FromRole="FromRole_AS_AGRMNT_BANK1"
+					ToRole="ToRole_AS_AGRMNT_BANK1"/><NavigationProperty Name="AGRMNT_EDM_NV1" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_EDM1" FromRole="FromRole_AS_AGRMNT_EDM1"
+					ToRole="ToRole_AS_AGRMNT_EDM1"/><NavigationProperty Name="AGRMNT_BANK_NV_T" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_BANK_T" FromRole="FromRole_AS_AGRMNT_BANK_T"
+					ToRole="ToRole_AS_AGRMNT_BANK_T"/><NavigationProperty Name="AGRMNT_EDM_NV_T" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_EDM_T" FromRole="FromRole_AS_AGRMNT_EDM_T"
+					ToRole="ToRole_AS_AGRMNT_EDM_T"/><NavigationProperty Name="AGRMNT_ADMIN_NV1" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_ADMIN1" FromRole="FromRole_AS_AGRMNT_ADMIN1"
+					ToRole="ToRole_AS_AGRMNT_ADMIN1"/><NavigationProperty Name="AGMNT_EOAT_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_EOAT" FromRole="FromRole_AS_AGMNT_EOAT"
+					ToRole="ToRole_AS_AGMNT_EOAT"/><NavigationProperty Name="AGMNT_GROSS_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_GROSS" FromRole="FromRole_AS_AGMNT_GROSS"
+					ToRole="ToRole_AS_AGMNT_GROSS"/><NavigationProperty Name="AGMNT_DEDUCT_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_DEDUCT" FromRole="FromRole_AS_AGMNT_DEDUCT"
+					ToRole="ToRole_AS_AGMNT_DEDUCT"/><NavigationProperty Name="AGMNT_EOAT_T_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_EOAT_T" FromRole="FromRole_AS_AGMNT_EOAT_T"
+					ToRole="ToRole_AS_AGMNT_EOAT_T"/></EntityType>
+			<EntityType Name="IFSC_Code" sap:content-version="1">
+				<Key><PropertyRef Name="IFSC"/></Key><Property Name="IFSC" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Bank Key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Attachment" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="FileName"/><PropertyRef Name="AdminID"/><PropertyRef Name="Guid"/></Key><Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="File Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileType" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="File Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileContent" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="File Content" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AdminID" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Adim ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Guid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Guid" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Reason" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Reason" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CreatedBy" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CreatedDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="CreatedTime" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HOA_Details" sap:content-version="1">
+				<Key><PropertyRef Name="Hoa"/></Key><Property Name="Hoa" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Head Of Account" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Project ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PrjDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Project Description"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Department Code"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanRefNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sanction Reference N"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAmt" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="2" sap:unicode="false" sap:label="Sanction Amount"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sanction Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SanAuthy" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Sanction Authority"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CatWork" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Category Of Work"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DocId" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Binary String" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="OrgRev" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Main_project" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="DDO_Code" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/><PropertyRef Name="Ddocode"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Ddocode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DdoDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Pic_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sl_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="PRJ_DDOHOAMAIN_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_DDO_HOAMAIN" FromRole="FromRole_AS_DDO_HOAMAIN"
+					ToRole="ToRole_AS_DDO_HOAMAIN"/><NavigationProperty Name="DDO_HOASet" Relationship="ZFLM_WORKID_MAINT_SRV.AS_DDO_HOA_ITEMS" FromRole="FromRole_AS_DDO_HOA_ITEMS"
+					ToRole="ToRole_AS_DDO_HOA_ITEMS"/><NavigationProperty Name="PRJ_DDOCODE1_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJ_DDOCODE1" FromRole="FromRole_AS_PRJ_DDOCODE1"
+					ToRole="ToRole_AS_PRJ_DDOCODE1"/><NavigationProperty Name="DDO_HOA1_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJ_DDOHOA1" FromRole="FromRole_AS_PRJ_DDOHOA1"
+					ToRole="ToRole_AS_PRJ_DDOHOA1"/></EntityType>
+			<EntityType Name="DDO_HOA" sap:content-version="1">
+				<Key><PropertyRef Name="Ddocode"/></Key><Property Name="Ddocode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="ADMIN_TECHID" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Admin Id" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Tech Sanction ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="AGMNT_PROJECTID" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="AGRMNT_TECH_NV1" Relationship="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_TECH1" FromRole="FromRole_AS_AGRMNT_TECH1"
+					ToRole="ToRole_AS_AGRMNT_TECH1"/></EntityType>
+			<EntityType Name="AGMNT_TECHID" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Project_Id_D" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="PRJ_DDOMAIN_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJ_DDOMAIN" FromRole="FromRole_AS_PRJ_DDOMAIN"
+					ToRole="ToRole_AS_PRJ_DDOMAIN"/><NavigationProperty Name="NAV_AS_PAYOUT_DP" Relationship="ZFLM_WORKID_MAINT_SRV.AS_Payout_Dp" FromRole="FromRole_AS_Payout_Dp"
+					ToRole="ToRole_AS_Payout_Dp"/><NavigationProperty Name="PRJ_ADMIN_F_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJ_ADMIN_F" FromRole="FromRole_AS_PRJ_ADMIN_F"
+					ToRole="ToRole_AS_PRJ_ADMIN_F"/><NavigationProperty Name="PRJ_TECH_F_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJ_TECH_F" FromRole="FromRole_AS_PRJ_TECH_F"
+					ToRole="ToRole_AS_PRJ_TECH_F"/><NavigationProperty Name="PRJ_AGMNT_F_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_PRJ_AGMNT_F" FromRole="FromRole_AS_PRJ_AGMNT_F"
+					ToRole="ToRole_AS_PRJ_AGMNT_F"/><NavigationProperty Name="PRJ_FUNDS_NV" Relationship="ZFLM_WORKID_MAINT_SRV.AS_FUNDS_NV" FromRole="FromRole_AS_FUNDS_NV"
+					ToRole="ToRole_AS_FUNDS_NV"/></EntityType>
+			<EntityType Name="DDOCode_T" sap:content-version="1">
+				<Key><PropertyRef Name="Ddocode"/></Key><Property Name="Ddocode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DdoDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HOA_T" sap:content-version="1">
+				<Key><PropertyRef Name="Ddocode"/></Key><Property Name="Ddocode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="AuthPosition" sap:content-version="1">
+				<Key><PropertyRef Name="Auth_Type"/></Key><Property Name="Auth_Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Auth_Pos" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Name_Pos" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Auth_Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Org_Unit" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Org_Text" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Cat_Work" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ADMIN_AGMNT" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="project ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Project ID"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="Agreement ID"/><Property Name="AgmntDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Authority_Name" sap:content-version="1">
+				<Key><PropertyRef Name="Auth_Pos"/></Key><Property Name="Auth_Pos" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Name_Pos" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Auth_Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Purpose" sap:content-version="1">
+				<Key><PropertyRef Name="Flag"/></Key><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="EOAT" sap:content-version="1">
+				<Key><PropertyRef Name="Agmnt_Auth"/></Key><Property Name="Agmnt_Auth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SancTill_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Penality_Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sanc_penality" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sanc_Date" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sanc_Ref" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Gross" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Deduction" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deduct" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deduct_Txt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Attachment_val" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Msg" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HOA_Agrmnt_F4" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="HoaDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="AGMNT_PRJID_F4" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TechId_Amt" sap:content-version="1">
+				<Key><PropertyRef Name="TechId"/></Key><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SanAmt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TechId_Dept" sap:content-version="1">
+				<Key><PropertyRef Name="Ddocode"/></Key><Property Name="Ddocode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeptName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Agmnt_BG_limit" sap:content-version="1">
+				<Key><PropertyRef Name="BG_Amnt"/></Key><Property Name="BG_Amnt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Vendor_details" sap:content-version="1">
+				<Key><PropertyRef Name="Vendor_Code"/></Key><Property Name="Pan_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="AAdhar_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vendor_Name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Account_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vendor_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Vendor_Adrs" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ReqNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="IFSC_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="NAV_VEND_BANK" Relationship="ZFLM_WORKID_MAINT_SRV.AS_BANK" FromRole="FromRole_AS_BANK" ToRole="ToRole_AS_BANK"/></EntityType>
+			<EntityType Name="TsF4_Ag" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechId_Desc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TechDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="PDHOA1" sap:content-version="1">
+				<Key><PropertyRef Name="DDO"/><PropertyRef Name="HOA"/></Key><Property Name="DDO" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="DDO Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:semantics="DDO Code"/><Property Name="HOA" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Head Of Account" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Head Of Account"/><Property Name="HOA_DESCR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="HOA Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="HOA Description"/><Property Name="HOA_HIER" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="HOA Hierarchy" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="HOA Hierarchy"/><Property Name="AVAIL_BUD" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Available Budget" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Available Budget"/><Property Name="TRSRY_SCRUT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Scrutiny" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Scrutiny"/><Property Name="TRSYOFC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Code"/><Property Name="TRSYDESC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Description"/><Property Name="AGNO" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Agreement Number/ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Agreement Number/ID"/><Property Name="SOURCE_HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BUD_CTRL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="N_HOA1_HOA2" Relationship="ZFLM_WORKID_MAINT_SRV.A_HOA1_HOA2" FromRole="FromRole_A_HOA1_HOA2"
+					ToRole="ToRole_A_HOA1_HOA2" sap:label="Navigation from HOA1 to HOA2"/></EntityType>
+			<EntityType Name="PDHOA2" sap:content-version="1">
+				<Key><PropertyRef Name="DDO"/><PropertyRef Name="HOA"/></Key><Property Name="DDO" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="DDO Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="DDO Code"/><Property Name="HOA" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Head Of Account" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Head Of Account"/><Property Name="HOA_DESCR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="HOA Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="HOA Description"/><Property Name="HOA_HIER" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="HOA Hierarchy" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="HOA Hierarchy"/><Property Name="AVAIL_BUD" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Available Budget" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Available Budget"/><Property Name="TRSRY_SCRUT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Scrutiny" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Scrutiny"/><Property Name="TRSYOFC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Code"/><Property Name="TRSYDESC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Description"/><Property Name="SOURCE_HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="N_HOA2_HOA3" Relationship="ZFLM_WORKID_MAINT_SRV.A_HOA2_HOA3" FromRole="FromRole_A_HOA2_HOA3"
+					ToRole="ToRole_A_HOA2_HOA3"/></EntityType>
+			<EntityType Name="PDHOA3" sap:content-version="1">
+				<Key><PropertyRef Name="DDO"/><PropertyRef Name="HOA"/><PropertyRef Name="HOA_HIER"/></Key><Property Name="DDO" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="DDO Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="DDO Code"/><Property Name="HOA" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Head Of Account" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Head Of Account"/><Property Name="HOA_DESCR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="HOA Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="HOA Description"/><Property Name="HOA_HIER" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="HOA Hierarchy" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="HOA Hierarchy"/><Property Name="AVAIL_BUD" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Available Budget" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Available Budget"/><Property Name="TRSRY_SCRUT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Scrutiny" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Scrutiny"/><Property Name="TRSYOFC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Code"/><Property Name="TRSYDESC" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Treasury Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="Treasury Description"/><Property Name="BUD_CTRL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Deduct_Bill" sap:content-version="1">
+				<Key><PropertyRef Name="AgmntId"/></Key><Property Name="AgmntId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="DeduType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Source_Funds" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="DDO" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="DDODesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Amount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Fund_Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Pic_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sl_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SourceHOA_Val" sap:content-version="1">
+				<Key><PropertyRef Name="HOA"/></Key><Property Name="HOA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Pic_CodeF4" sap:content-version="1">
+				<Key><PropertyRef Name="Ddocode"/></Key><Property Name="Ddocode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Hoa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Pic_Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Flag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Pic_CodeDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Deptcode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FileSize" sap:content-version="1">
+				<Key><PropertyRef Name="FileSizeValue"/></Key><Property Name="FileSizeValue" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Admin_Payout" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="ProjectId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="POutYear" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="POutMonth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="POutAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sl_No" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="As_Tech_Agmnt_c" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.TechId_Create" Multiplicity="1" Role="FromRole_As_Tech_Agmnt_c"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="*" Role="ToRole_As_Tech_Agmnt_c"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_As_Tech_Agmnt_c"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_As_Tech_Agmnt_c"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="A_BNK_DTS" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.TechId_Create" Multiplicity="1" Role="FromRole_A_BNK_DTS"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_BnkDtls" Multiplicity="*" Role="ToRole_A_BNK_DTS"/></Association>
+			<Association Name="AS_BANK" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Vendor_details" Multiplicity="0..1" Role="FromRole_AS_BANK"/><End Type="ZFLM_WORKID_MAINT_SRV.Vendor_Bnk_dtls" Multiplicity="*" Role="ToRole_AS_BANK"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_BANK"><PropertyRef Name="Vendor_Code"/></Principal>
+					<Dependent Role="ToRole_AS_BANK"><PropertyRef Name="Vendor_Code"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_TECHID_AMTVAL" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.TechID_D" Multiplicity="1" Role="FromRole_AS_TECHID_AMTVAL"/><End Type="ZFLM_WORKID_MAINT_SRV.TechId_Amtval" Multiplicity="*" Role="ToRole_AS_TECHID_AMTVAL"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_TECHID_AMTVAL"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_TECHID_AMTVAL"><PropertyRef Name="TechId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_DDO_HOAMAIN" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="1" Role="FromRole_AS_DDO_HOAMAIN"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_HOA" Multiplicity="*" Role="ToRole_AS_DDO_HOAMAIN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_DDO_HOAMAIN"><PropertyRef Name="Ddocode"/><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_DDO_HOAMAIN"><PropertyRef Name="Ddocode"/><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_DDO_HOA" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="1" Role="FromRole_AS_DDO_HOA"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_HOA" Multiplicity="*" Role="ToRole_AS_DDO_HOA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_DDO_HOA"><PropertyRef Name="Ddocode"/><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_DDO_HOA"><PropertyRef Name="Ddocode"/><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_DDO_HOA_ITEMS" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="1" Role="FromRole_AS_DDO_HOA_ITEMS"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_HOA" Multiplicity="*" Role="ToRole_AS_DDO_HOA_ITEMS"/></Association>
+			<Association Name="AS_PRJ_DDOCODE1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="1" Role="FromRole_AS_PRJ_DDOCODE1"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_HOA" Multiplicity="*" Role="ToRole_AS_PRJ_DDOCODE1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJ_DDOCODE1"><PropertyRef Name="ProjectId"/><PropertyRef Name="Ddocode"/></Principal>
+					<Dependent Role="ToRole_AS_PRJ_DDOCODE1"><PropertyRef Name="Ddocode"/><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJ_DDOHOA1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="*" Role="FromRole_AS_PRJ_DDOHOA1"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_HOA" Multiplicity="*" Role="ToRole_AS_PRJ_DDOHOA1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJ_DDOHOA1"><PropertyRef Name="Ddocode"/><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJ_DDOHOA1"><PropertyRef Name="Ddocode"/><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_BANK" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_AS_AGMNT_BANK"/><End Type="ZFLM_WORKID_MAINT_SRV.Bank" Multiplicity="*" Role="ToRole_AS_AGMNT_BANK"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_BANK"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_BANK"><PropertyRef Name="BankGau"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_EOAT_D" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_AS_AGMNT_EOAT_D"/><End Type="ZFLM_WORKID_MAINT_SRV.EOAT" Multiplicity="*" Role="ToRole_AS_AGMNT_EOAT_D"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_EOAT_D"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_EOAT_D"><PropertyRef Name="Agmnt_Auth"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_GROSS_D" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_AS_AGMNT_GROSS_D"/><End Type="ZFLM_WORKID_MAINT_SRV.Gross" Multiplicity="*" Role="ToRole_AS_AGMNT_GROSS_D"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_GROSS_D"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_GROSS_D"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_DEDUCT_D" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_AS_AGMNT_DEDUCT_D"/><End Type="ZFLM_WORKID_MAINT_SRV.Deduction" Multiplicity="*" Role="ToRole_AS_AGMNT_DEDUCT_D"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_DEDUCT_D"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_DEDUCT_D"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="As_AgMnt_EMD" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_As_AgMnt_EMD"/><End Type="ZFLM_WORKID_MAINT_SRV.Bill_EMDtls" Multiplicity="*" Role="ToRole_As_AgMnt_EMD"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_As_AgMnt_EMD"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_As_AgMnt_EMD"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_CHLN" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_AS_AGMNT_CHLN"/><End Type="ZFLM_WORKID_MAINT_SRV.Challan_val" Multiplicity="*" Role="ToRole_AS_AGMNT_CHLN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_CHLN"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_CHLN"><PropertyRef Name="Challan_No"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_PRJTECH" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_AS_AGMNT_PRJTECH"/><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT_TECHID" Multiplicity="*" Role="ToRole_AS_AGMNT_PRJTECH"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_PRJTECH"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_PRJTECH"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_PRJTID" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT" Multiplicity="1" Role="FromRole_AS_AGMNT_PRJTID"/><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT_PROJECTID" Multiplicity="*" Role="ToRole_AS_AGMNT_PRJTID"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_PRJTID"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_PRJTID"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="A_HOA2_HOA3" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.PDHOA2" Multiplicity="1" Role="FromRole_A_HOA2_HOA3"/><End Type="ZFLM_WORKID_MAINT_SRV.PDHOA3" Multiplicity="*" Role="ToRole_A_HOA2_HOA3"/></Association>
+			<Association Name="AS_UPLOAD" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Upd_header" Multiplicity="1" Role="FromRole_AS_UPLOAD"/><End Type="ZFLM_WORKID_MAINT_SRV.Upd_Item" Multiplicity="*" Role="ToRole_AS_UPLOAD"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_UPLOAD"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_UPLOAD"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_Upload_HDR" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Upd_header" Multiplicity="1" Role="FromRole_AS_Upload_HDR"/><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="*" Role="ToRole_AS_Upload_HDR"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_Upload_HDR"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_Upload_HDR"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_Upload_DDO" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Upd_header" Multiplicity="1" Role="FromRole_AS_Upload_DDO"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="*" Role="ToRole_AS_Upload_DDO"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_Upload_DDO"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_Upload_DDO"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_Upload_SCRFNDS" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Upd_header" Multiplicity="1" Role="FromRole_AS_Upload_SCRFNDS"/><End Type="ZFLM_WORKID_MAINT_SRV.Source_Funds" Multiplicity="*" Role="ToRole_AS_Upload_SCRFNDS"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_Upload_SCRFNDS"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_Upload_SCRFNDS"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_Upload_Payout" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Upd_header" Multiplicity="1" Role="FromRole_AS_Upload_Payout"/><End Type="ZFLM_WORKID_MAINT_SRV.Admin_Payout" Multiplicity="*" Role="ToRole_AS_Upload_Payout"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_Upload_Payout"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_Upload_Payout"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="A_HOA1_HOA2" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.PDHOA1" Multiplicity="1" Role="FromRole_A_HOA1_HOA2"/><End Type="ZFLM_WORKID_MAINT_SRV.PDHOA2" Multiplicity="*" Role="ToRole_A_HOA1_HOA2"/></Association>
+			<Association Name="AS_COST_LIST" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.FLM_COST_LOG" Multiplicity="1" Role="FromRole_AS_COST_LIST"/><End Type="ZFLM_WORKID_MAINT_SRV.COST_DIST_LIST" Multiplicity="*" Role="ToRole_AS_COST_LIST"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_COST_LIST"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_COST_LIST"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJID_ADMN" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJID_ADMN"/><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="*" Role="ToRole_AS_PRJID_ADMN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJID_ADMN"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJID_ADMN"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_HOA" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_HOA"/><End Type="ZFLM_WORKID_MAINT_SRV.DDOCode_HOA" Multiplicity="*" Role="ToRole_AS_PRJT_HOA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_HOA"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_HOA"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_DDOHOA_D1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_DDOHOA_D1"/><End Type="ZFLM_WORKID_MAINT_SRV.DDOCode_HOA" Multiplicity="*" Role="ToRole_AS_PRJT_DDOHOA_D1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_DDOHOA_D1"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_DDOHOA_D1"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_DDOHOA_D2" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_DDOHOA_D2"/><End Type="ZFLM_WORKID_MAINT_SRV.DDOCode_HOA" Multiplicity="*" Role="ToRole_AS_PRJT_DDOHOA_D2"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_DDOHOA_D2"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_DDOHOA_D2"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_ADMIN" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_ADMIN"/><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="*" Role="ToRole_AS_PRJT_ADMIN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_ADMIN"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_ADMIN"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_TECH" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_TECH"/><End Type="ZFLM_WORKID_MAINT_SRV.TechId_Create" Multiplicity="*" Role="ToRole_AS_PRJT_TECH"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_TECH"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_TECH"><PropertyRef Name="TechId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_AGMNT" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_AGMNT"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="*" Role="ToRole_AS_PRJT_AGMNT"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_AGMNT"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_AGMNT"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_DDOCODE" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_DDOCODE"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="*" Role="ToRole_AS_PRJT_DDOCODE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_DDOCODE"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_DDOCODE"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_DDO_HOA" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="1" Role="FromRole_AS_PRJT_DDO_HOA"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_HOA" Multiplicity="*" Role="ToRole_AS_PRJT_DDO_HOA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_DDO_HOA"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_DDO_HOA"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="As_child" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Deptcode_DDO" Multiplicity="1" Role="FromRole_As_child"/><End Type="ZFLM_WORKID_MAINT_SRV.DDOCode_HOA" Multiplicity="*" Role="ToRole_As_child"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_As_child"><PropertyRef Name="Ddocode"/><PropertyRef Name="ProjectId"/><PropertyRef Name="Deptcode"/></Principal>
+					<Dependent Role="ToRole_As_child"><PropertyRef Name="Ddocode"/><PropertyRef Name="ProjectId"/><PropertyRef Name="Deptcode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_DEDU_LIST" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.FLM_DEDUCT" Multiplicity="1" Role="FromRole_AS_DEDU_LIST"/><End Type="ZFLM_WORKID_MAINT_SRV.DEDUCT_LIST" Multiplicity="*" Role="ToRole_AS_DEDU_LIST"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_DEDU_LIST"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_DEDU_LIST"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJ_DDOMAIN" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_PRJ_DDOMAIN"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="*" Role="ToRole_AS_PRJ_DDOMAIN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJ_DDOMAIN"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJ_DDOMAIN"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_Payout_Dp" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_Payout_Dp"/><End Type="ZFLM_WORKID_MAINT_SRV.Admin_Payout" Multiplicity="*" Role="ToRole_AS_Payout_Dp"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_Payout_Dp"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_Payout_Dp"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_DDOCODE_D" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_PRJT_DDOCODE_D"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="*" Role="ToRole_AS_PRJT_DDOCODE_D"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_DDOCODE_D"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_DDOCODE_D"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJT_DDOHOA_D" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_PRJT_DDOHOA_D"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_HOA" Multiplicity="*" Role="ToRole_AS_PRJT_DDOHOA_D"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJT_DDOHOA_D"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJT_DDOHOA_D"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJ_ADMIN_F" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_PRJ_ADMIN_F"/><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="*" Role="ToRole_AS_PRJ_ADMIN_F"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJ_ADMIN_F"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJ_ADMIN_F"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJ_TECH_F" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_PRJ_TECH_F"/><End Type="ZFLM_WORKID_MAINT_SRV.TechId_Create" Multiplicity="*" Role="ToRole_AS_PRJ_TECH_F"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJ_TECH_F"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJ_TECH_F"><PropertyRef Name="TechId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_PRJ_AGMNT_F" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_PRJ_AGMNT_F"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="*" Role="ToRole_AS_PRJ_AGMNT_F"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_PRJ_AGMNT_F"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_PRJ_AGMNT_F"><PropertyRef Name="TechId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_FUNDS_NV" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id_D" Multiplicity="1" Role="FromRole_AS_FUNDS_NV"/><End Type="ZFLM_WORKID_MAINT_SRV.Source_Funds" Multiplicity="*" Role="ToRole_AS_FUNDS_NV"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_FUNDS_NV"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_FUNDS_NV"><PropertyRef Name="DDO"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="As_DDO_HOA1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.DDOCode_HOA" Multiplicity="1" Role="FromRole_As_DDO_HOA1"/><End Type="ZFLM_WORKID_MAINT_SRV.Deptcode_DDO" Multiplicity="*" Role="ToRole_As_DDO_HOA1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_As_DDO_HOA1"><PropertyRef Name="ProjectId"/><PropertyRef Name="Deptcode"/><PropertyRef Name="Ddocode"/></Principal>
+					<Dependent Role="ToRole_As_DDO_HOA1"><PropertyRef Name="ProjectId"/><PropertyRef Name="Deptcode"/><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_FLM_BILLOG" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.FLM_BILLS_LOG" Multiplicity="1" Role="FromRole_AS_FLM_BILLOG"/><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT_BILLIST" Multiplicity="*" Role="ToRole_AS_FLM_BILLOG"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_FLM_BILLOG"><PropertyRef Name="AgmntId"/></Principal>
+					<Dependent Role="ToRole_AS_FLM_BILLOG"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_TECH1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT_PROJECTID" Multiplicity="1" Role="FromRole_AS_AGRMNT_TECH1"/><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT_TECHID" Multiplicity="*" Role="ToRole_AS_AGRMNT_TECH1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_TECH1"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_TECH1"><PropertyRef Name="TechId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_AS_AGRMNT1"/><End Type="ZFLM_WORKID_MAINT_SRV.TechId_Create" Multiplicity="*" Role="ToRole_AS_AGRMNT1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT1"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT1"><PropertyRef Name="TechId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="As_Tech_Agmnt" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_As_Tech_Agmnt"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="*" Role="ToRole_As_Tech_Agmnt"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_As_Tech_Agmnt"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_As_Tech_Agmnt"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="As_admin_DDOtoHOA" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_As_admin_DDOtoHOA"/><End Type="ZFLM_WORKID_MAINT_SRV.DDOCode_HOA" Multiplicity="*" Role="ToRole_As_admin_DDOtoHOA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_As_admin_DDOtoHOA"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_As_admin_DDOtoHOA"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_SCR_FUND" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_AS_SCR_FUND"/><End Type="ZFLM_WORKID_MAINT_SRV.Source_Funds" Multiplicity="*" Role="ToRole_AS_SCR_FUND"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_SCR_FUND"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_SCR_FUND"><PropertyRef Name="HOA"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_Payout" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_AS_Payout"/><End Type="ZFLM_WORKID_MAINT_SRV.Admin_Payout" Multiplicity="*" Role="ToRole_AS_Payout"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_Payout"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_Payout"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="As_TechId" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_As_TechId"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_BnkDtls" Multiplicity="*" Role="ToRole_As_TechId"/></Association>
+			<Association Name="As_par1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_As_par1"/><End Type="ZFLM_WORKID_MAINT_SRV.Deptcode_DDO" Multiplicity="*" Role="ToRole_As_par1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_As_par1"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_As_par1"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_DDO1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_AS_DDO1"/><End Type="ZFLM_WORKID_MAINT_SRV.DDO_Code" Multiplicity="*" Role="ToRole_AS_DDO1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_DDO1"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_DDO1"><PropertyRef Name="Ddocode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_HOA" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Admin_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_HOA"/><End Type="ZFLM_WORKID_MAINT_SRV.HOA_F4" Multiplicity="*" Role="ToRole_AS_AGRMNT_HOA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_HOA"><PropertyRef Name="ProjectId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_HOA"><PropertyRef Name="Hoa"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_BANK" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_BANK"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_BnkDtls" Multiplicity="*" Role="ToRole_AS_AGRMNT_BANK"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_BANK"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_BANK"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_ADMIN" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_ADMIN"/><End Type="ZFLM_WORKID_MAINT_SRV.Project_Id" Multiplicity="*" Role="ToRole_AS_AGRMNT_ADMIN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_ADMIN"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_ADMIN"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_TECH" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_TECH"/><End Type="ZFLM_WORKID_MAINT_SRV.TechId_Create" Multiplicity="*" Role="ToRole_AS_AGRMNT_TECH"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_TECH"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_TECH"><PropertyRef Name="TechId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_EDM" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_EDM"/><End Type="ZFLM_WORKID_MAINT_SRV.EDM_Cash" Multiplicity="*" Role="ToRole_AS_AGRMNT_EDM"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_EDM"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_EDM"><PropertyRef Name="Challan_No"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_BANK1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_BANK1"/><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_BnkDtls" Multiplicity="*" Role="ToRole_AS_AGRMNT_BANK1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_BANK1"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_BANK1"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_EDM1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_EDM1"/><End Type="ZFLM_WORKID_MAINT_SRV.EDM_Cash" Multiplicity="*" Role="ToRole_AS_AGRMNT_EDM1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_EDM1"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_EDM1"><PropertyRef Name="Challan_No"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_BANK_T" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_BANK_T"/><End Type="ZFLM_WORKID_MAINT_SRV.Bank" Multiplicity="*" Role="ToRole_AS_AGRMNT_BANK_T"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_BANK_T"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_BANK_T"><PropertyRef Name="BankGau"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_EDM_T" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_EDM_T"/><End Type="ZFLM_WORKID_MAINT_SRV.EDM" Multiplicity="*" Role="ToRole_AS_AGRMNT_EDM_T"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_EDM_T"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_EDM_T"><PropertyRef Name="Challan_No"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGRMNT_ADMIN1" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGRMNT_ADMIN1"/><End Type="ZFLM_WORKID_MAINT_SRV.AGMNT_PROJECTID" Multiplicity="*" Role="ToRole_AS_AGRMNT_ADMIN1"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGRMNT_ADMIN1"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGRMNT_ADMIN1"><PropertyRef Name="ProjectId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_EOAT" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGMNT_EOAT"/><End Type="ZFLM_WORKID_MAINT_SRV.EOAT" Multiplicity="*" Role="ToRole_AS_AGMNT_EOAT"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_EOAT"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_EOAT"><PropertyRef Name="Agmnt_Auth"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_GROSS" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGMNT_GROSS"/><End Type="ZFLM_WORKID_MAINT_SRV.Gross" Multiplicity="*" Role="ToRole_AS_AGMNT_GROSS"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_GROSS"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_GROSS"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_DEDUCT" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGMNT_DEDUCT"/><End Type="ZFLM_WORKID_MAINT_SRV.Deduction" Multiplicity="*" Role="ToRole_AS_AGMNT_DEDUCT"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_DEDUCT"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_DEDUCT"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AS_AGMNT_EOAT_T" sap:content-version="1"><End Type="ZFLM_WORKID_MAINT_SRV.Agmnt_create" Multiplicity="1" Role="FromRole_AS_AGMNT_EOAT_T"/><End Type="ZFLM_WORKID_MAINT_SRV.EOAT" Multiplicity="*" Role="ToRole_AS_AGMNT_EOAT_T"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AS_AGMNT_EOAT_T"><PropertyRef Name="TechId"/></Principal>
+					<Dependent Role="ToRole_AS_AGMNT_EOAT_T"><PropertyRef Name="AgmntId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZFLM_WORKID_MAINT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="Project_IdSet" EntityType="ZFLM_WORKID_MAINT_SRV.Project_Id" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Transanction_idSet" EntityType="ZFLM_WORKID_MAINT_SRV.Transanction_id" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Vendor_NoSet" EntityType="ZFLM_WORKID_MAINT_SRV.Vendor_No" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Admin_createSet" EntityType="ZFLM_WORKID_MAINT_SRV.Admin_create" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="TechId_CreateSet" EntityType="ZFLM_WORKID_MAINT_SRV.TechId_Create" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="HeadOfAcntSet" EntityType="ZFLM_WORKID_MAINT_SRV.HeadOfAcnt" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Sanauth_f4Set" EntityType="ZFLM_WORKID_MAINT_SRV.Sanauth_f4" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="HOA_F4Set" EntityType="ZFLM_WORKID_MAINT_SRV.HOA_F4" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="Bank_DetailsSet" EntityType="ZFLM_WORKID_MAINT_SRV.Bank_Details" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Agmnt_BnkDtlsSet" EntityType="ZFLM_WORKID_MAINT_SRV.Agmnt_BnkDtls" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Challan_valSet" EntityType="ZFLM_WORKID_MAINT_SRV.Challan_val" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Deptcode_DDOSet" EntityType="ZFLM_WORKID_MAINT_SRV.Deptcode_DDO" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="DDOCode_HOASet" EntityType="ZFLM_WORKID_MAINT_SRV.DDOCode_HOA" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="EDM_CashSet" EntityType="ZFLM_WORKID_MAINT_SRV.EDM_Cash" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="BankSet" EntityType="ZFLM_WORKID_MAINT_SRV.Bank" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EDMSet" EntityType="ZFLM_WORKID_MAINT_SRV.EDM" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="AGMNTSet" EntityType="ZFLM_WORKID_MAINT_SRV.AGMNT" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Val_ButtonsSet" EntityType="ZFLM_WORKID_MAINT_SRV.Val_Buttons" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TechID_DSet" EntityType="ZFLM_WORKID_MAINT_SRV.TechID_D" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="AgmntID_DSet" EntityType="ZFLM_WORKID_MAINT_SRV.AgmntID_D" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Admin_F4Set" EntityType="ZFLM_WORKID_MAINT_SRV.Admin_F4" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TechId_AmtvalSet" EntityType="ZFLM_WORKID_MAINT_SRV.TechId_Amtval" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Edit_ButtonValSet" EntityType="ZFLM_WORKID_MAINT_SRV.Edit_ButtonVal" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="BankRev_F4Set" EntityType="ZFLM_WORKID_MAINT_SRV.BankRev_F4" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EOAT_F4Set" EntityType="ZFLM_WORKID_MAINT_SRV.EOAT_F4" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Bank_f4Set" EntityType="ZFLM_WORKID_MAINT_SRV.Bank_F4" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TS_AmntValSet" EntityType="ZFLM_WORKID_MAINT_SRV.TS_AmntVal" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Bill_EMDtlsSet" EntityType="ZFLM_WORKID_MAINT_SRV.Bill_EMDtls" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Vendor_Bnk_dtlsSet" EntityType="ZFLM_WORKID_MAINT_SRV.Vendor_Bnk_dtls" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="AS_Rev_FlagSet" EntityType="ZFLM_WORKID_MAINT_SRV.AS_Rev_Flag" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="FLM_BILLS_LOGSet" EntityType="ZFLM_WORKID_MAINT_SRV.FLM_BILLS_LOG" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="AGMNT_BILLISTSet" EntityType="ZFLM_WORKID_MAINT_SRV.AGMNT_BILLIST" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="FLM_COST_LOGSet" EntityType="ZFLM_WORKID_MAINT_SRV.FLM_COST_LOG" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="COST_DIST_LISTSet" EntityType="ZFLM_WORKID_MAINT_SRV.COST_DIST_LIST" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="FLM_DEDUCTSet" EntityType="ZFLM_WORKID_MAINT_SRV.FLM_DEDUCT" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="DEDUCT_LISTSet" EntityType="ZFLM_WORKID_MAINT_SRV.DEDUCT_LIST" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Source_HOASet" EntityType="ZFLM_WORKID_MAINT_SRV.Source_HOA" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Source_DDOSet" EntityType="ZFLM_WORKID_MAINT_SRV.Source_DDO" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Upd_headerSet" EntityType="ZFLM_WORKID_MAINT_SRV.Upd_header" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Upd_ItemSet" EntityType="ZFLM_WORKID_MAINT_SRV.Upd_Item" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Report_ASHeaderSet" EntityType="ZFLM_WORKID_MAINT_SRV.Report_ASHeader" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Dept_CodeSet" EntityType="ZFLM_WORKID_MAINT_SRV.Dept_Code" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Agmnt_createSet" EntityType="ZFLM_WORKID_MAINT_SRV.Agmnt_create" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="IFSC_CodeSet" EntityType="ZFLM_WORKID_MAINT_SRV.IFSC_Code" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="AttachmentSet" EntityType="ZFLM_WORKID_MAINT_SRV.Attachment" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="HOA_DetailsSet" EntityType="ZFLM_WORKID_MAINT_SRV.HOA_Details" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="Main_projectSet" EntityType="ZFLM_WORKID_MAINT_SRV.Main_project" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="DDO_CodeSet" EntityType="ZFLM_WORKID_MAINT_SRV.DDO_Code" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="DDO_HOASet" EntityType="ZFLM_WORKID_MAINT_SRV.DDO_HOA" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ADMIN_TECHIDSet" EntityType="ZFLM_WORKID_MAINT_SRV.ADMIN_TECHID" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="AGMNT_PROJECTIDSet" EntityType="ZFLM_WORKID_MAINT_SRV.AGMNT_PROJECTID" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="AGMNT_TECHIDSet" EntityType="ZFLM_WORKID_MAINT_SRV.AGMNT_TECHID" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Project_Id_DSet" EntityType="ZFLM_WORKID_MAINT_SRV.Project_Id_D" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="DDOCode_TSet" EntityType="ZFLM_WORKID_MAINT_SRV.DDOCode_T" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="HOA_TSet" EntityType="ZFLM_WORKID_MAINT_SRV.HOA_T" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="AuthPositionSet" EntityType="ZFLM_WORKID_MAINT_SRV.AuthPosition" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ADMIN_AGMNTSet" EntityType="ZFLM_WORKID_MAINT_SRV.ADMIN_AGMNT" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Authority_NameSet" EntityType="ZFLM_WORKID_MAINT_SRV.Authority_Name" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="PurposeSet" EntityType="ZFLM_WORKID_MAINT_SRV.Purpose" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EOATSet" EntityType="ZFLM_WORKID_MAINT_SRV.EOAT" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="GrossSet" EntityType="ZFLM_WORKID_MAINT_SRV.Gross" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="DeductionSet" EntityType="ZFLM_WORKID_MAINT_SRV.Deduction" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Attachment_valSet" EntityType="ZFLM_WORKID_MAINT_SRV.Attachment_val" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="HOA_Agrmnt_F4Set" EntityType="ZFLM_WORKID_MAINT_SRV.HOA_Agrmnt_F4" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="AGMNT_PRJID_F4Set" EntityType="ZFLM_WORKID_MAINT_SRV.AGMNT_PRJID_F4" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TechId_AmtSet" EntityType="ZFLM_WORKID_MAINT_SRV.TechId_Amt" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TechId_DeptSet" EntityType="ZFLM_WORKID_MAINT_SRV.TechId_Dept" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Agmnt_BG_limitSet" EntityType="ZFLM_WORKID_MAINT_SRV.Agmnt_BG_limit" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Vendor_detailsSet" EntityType="ZFLM_WORKID_MAINT_SRV.Vendor_details" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TsF4_AgSet" EntityType="ZFLM_WORKID_MAINT_SRV.TsF4_Ag" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="PDHOA1Set" EntityType="ZFLM_WORKID_MAINT_SRV.PDHOA1" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="PDHOA2Set" EntityType="ZFLM_WORKID_MAINT_SRV.PDHOA2" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="PDHOA3Set" EntityType="ZFLM_WORKID_MAINT_SRV.PDHOA3" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Deduct_BillSet" EntityType="ZFLM_WORKID_MAINT_SRV.Deduct_Bill" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Source_FundsSet" EntityType="ZFLM_WORKID_MAINT_SRV.Source_Funds" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="SourceHOA_ValSet" EntityType="ZFLM_WORKID_MAINT_SRV.SourceHOA_Val" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Pic_CodeF4Set" EntityType="ZFLM_WORKID_MAINT_SRV.Pic_CodeF4" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="FileSizeSet" EntityType="ZFLM_WORKID_MAINT_SRV.FileSize" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Admin_PayoutSet" EntityType="ZFLM_WORKID_MAINT_SRV.Admin_Payout" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="AS_PRJT_TECHSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_TECH" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_TECH"/><End EntitySet="TechId_CreateSet" Role="ToRole_AS_PRJT_TECH"/></AssociationSet>
+				<AssociationSet Name="AS_UploadSet" Association="ZFLM_WORKID_MAINT_SRV.AS_UPLOAD" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Upd_headerSet" Role="FromRole_AS_UPLOAD"/><End EntitySet="Upd_ItemSet" Role="ToRole_AS_UPLOAD"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_EOAT_TSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_EOAT_T" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGMNT_EOAT_T"/><End EntitySet="EOATSet" Role="ToRole_AS_AGMNT_EOAT_T"/></AssociationSet>
+				<AssociationSet Name="AS_TECHID_AMTVALSet" Association="ZFLM_WORKID_MAINT_SRV.AS_TECHID_AMTVAL" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TechID_DSet" Role="FromRole_AS_TECHID_AMTVAL"/><End EntitySet="TechId_AmtvalSet" Role="ToRole_AS_TECHID_AMTVAL"/></AssociationSet>
+				<AssociationSet Name="As_childSet" Association="ZFLM_WORKID_MAINT_SRV.As_child" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Deptcode_DDOSet" Role="FromRole_As_child"/><End EntitySet="DDOCode_HOASet" Role="ToRole_As_child"/></AssociationSet>
+				<AssociationSet Name="AS_PRJ_AGMNT_FSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJ_AGMNT_F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_PRJ_AGMNT_F"/><End EntitySet="Agmnt_createSet" Role="ToRole_AS_PRJ_AGMNT_F"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_HOASet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_HOA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_HOA"/><End EntitySet="DDOCode_HOASet" Role="ToRole_AS_PRJT_HOA"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_DDOHOA_D2Set" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDOHOA_D2" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_DDOHOA_D2"/><End EntitySet="DDOCode_HOASet" Role="ToRole_AS_PRJT_DDOHOA_D2"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_ADMINSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_ADMIN" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_ADMIN"/><End EntitySet="Admin_createSet" Role="ToRole_AS_PRJT_ADMIN"/></AssociationSet>
+				<AssociationSet Name="AS_PRJ_DDOCODE1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJ_DDOCODE1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="DDO_CodeSet" Role="FromRole_AS_PRJ_DDOCODE1"/><End EntitySet="DDO_HOASet" Role="ToRole_AS_PRJ_DDOCODE1"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_DDO_HOASet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDO_HOA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_DDO_HOA"/><End EntitySet="DDO_HOASet" Role="ToRole_AS_PRJT_DDO_HOA"/></AssociationSet>
+				<AssociationSet Name="As_AgMnt_EMDSet" Association="ZFLM_WORKID_MAINT_SRV.As_AgMnt_EMD" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_As_AgMnt_EMD"/><End EntitySet="Bill_EMDtlsSet" Role="ToRole_As_AgMnt_EMD"/></AssociationSet>
+				<AssociationSet Name="AS_BANKSet" Association="ZFLM_WORKID_MAINT_SRV.AS_BANK" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Vendor_detailsSet" Role="FromRole_AS_BANK"/><End EntitySet="Vendor_Bnk_dtlsSet" Role="ToRole_AS_BANK"/></AssociationSet>
+				<AssociationSet Name="AS_FLM_BILLOGSet" Association="ZFLM_WORKID_MAINT_SRV.AS_FLM_BILLOG" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="FLM_BILLS_LOGSet" Role="FromRole_AS_FLM_BILLOG"/><End EntitySet="AGMNT_BILLISTSet" Role="ToRole_AS_FLM_BILLOG"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_EOATSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_EOAT" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGMNT_EOAT"/><End EntitySet="EOATSet" Role="ToRole_AS_AGMNT_EOAT"/></AssociationSet>
+				<AssociationSet Name="AS_PRJ_ADMIN_FSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJ_ADMIN_F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_PRJ_ADMIN_F"/><End EntitySet="Admin_createSet" Role="ToRole_AS_PRJ_ADMIN_F"/></AssociationSet>
+				<AssociationSet Name="AS_Upload_DDOSet" Association="ZFLM_WORKID_MAINT_SRV.AS_Upload_DDO" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Upd_headerSet" Role="FromRole_AS_Upload_DDO"/><End EntitySet="DDO_CodeSet" Role="ToRole_AS_Upload_DDO"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_GROSSSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_GROSS" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGMNT_GROSS"/><End EntitySet="GrossSet" Role="ToRole_AS_AGMNT_GROSS"/></AssociationSet>
+				<AssociationSet Name="AS_DDO_HOAMAINSet" Association="ZFLM_WORKID_MAINT_SRV.AS_DDO_HOAMAIN" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="DDO_CodeSet" Role="FromRole_AS_DDO_HOAMAIN"/><End EntitySet="DDO_HOASet" Role="ToRole_AS_DDO_HOAMAIN"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_ADMIN1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_ADMIN1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_ADMIN1"/><End EntitySet="AGMNT_PROJECTIDSet" Role="ToRole_AS_AGRMNT_ADMIN1"/></AssociationSet>
+				<AssociationSet Name="AS_PRJ_DDOHOA1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJ_DDOHOA1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="DDO_CodeSet" Role="FromRole_AS_PRJ_DDOHOA1"/><End EntitySet="DDO_HOASet" Role="ToRole_AS_PRJ_DDOHOA1"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_DDOHOA_DSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDOHOA_D" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_PRJT_DDOHOA_D"/><End EntitySet="DDO_HOASet" Role="ToRole_AS_PRJT_DDOHOA_D"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_BANKSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_BANK" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_AS_AGMNT_BANK"/><End EntitySet="BankSet" Role="ToRole_AS_AGMNT_BANK"/></AssociationSet>
+				<AssociationSet Name="AS_COST_LISTSet" Association="ZFLM_WORKID_MAINT_SRV.AS_COST_LIST" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="FLM_COST_LOGSet" Role="FromRole_AS_COST_LIST"/><End EntitySet="COST_DIST_LISTSet" Role="ToRole_AS_COST_LIST"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_GROSS_DSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_GROSS_D" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_AS_AGMNT_GROSS_D"/><End EntitySet="GrossSet" Role="ToRole_AS_AGMNT_GROSS_D"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_DEDUCTSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_DEDUCT" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGMNT_DEDUCT"/><End EntitySet="DeductionSet" Role="ToRole_AS_AGMNT_DEDUCT"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_EDMSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_EDM" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_EDM"/><End EntitySet="EDM_CashSet" Role="ToRole_AS_AGRMNT_EDM"/></AssociationSet>
+				<AssociationSet Name="AS_Upload_SCRFNDSSet" Association="ZFLM_WORKID_MAINT_SRV.AS_Upload_SCRFNDS" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Upd_headerSet" Role="FromRole_AS_Upload_SCRFNDS"/><End EntitySet="Source_FundsSet" Role="ToRole_AS_Upload_SCRFNDS"/></AssociationSet>
+				<AssociationSet Name="AS_FUNDS_NVSet" Association="ZFLM_WORKID_MAINT_SRV.AS_FUNDS_NV" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_FUNDS_NV"/><End EntitySet="Source_FundsSet" Role="ToRole_AS_FUNDS_NV"/></AssociationSet>
+				<AssociationSet Name="AS_Payout_DpSet" Association="ZFLM_WORKID_MAINT_SRV.AS_Payout_Dp" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_Payout_Dp"/><End EntitySet="Admin_PayoutSet" Role="ToRole_AS_Payout_Dp"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_DEDUCT_DSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_DEDUCT_D" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_AS_AGMNT_DEDUCT_D"/><End EntitySet="DeductionSet" Role="ToRole_AS_AGMNT_DEDUCT_D"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_DDOCODE_DSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDOCODE_D" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_PRJT_DDOCODE_D"/><End EntitySet="DDO_CodeSet" Role="ToRole_AS_PRJT_DDOCODE_D"/></AssociationSet>
+				<AssociationSet Name="AS_DDO_HOA_ITEMSSet" Association="ZFLM_WORKID_MAINT_SRV.AS_DDO_HOA_ITEMS" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="DDO_CodeSet" Role="FromRole_AS_DDO_HOA_ITEMS"/><End EntitySet="DDO_HOASet" Role="ToRole_AS_DDO_HOA_ITEMS"/></AssociationSet>
+				<AssociationSet Name="As_TechId_AssocSet" Association="ZFLM_WORKID_MAINT_SRV.As_TechId" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_As_TechId"/><End EntitySet="Agmnt_BnkDtlsSet" Role="ToRole_As_TechId"/></AssociationSet>
+				<AssociationSet Name="AS_PRJ_DDOMAINSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJ_DDOMAIN" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_PRJ_DDOMAIN"/><End EntitySet="DDO_CodeSet" Role="ToRole_AS_PRJ_DDOMAIN"/></AssociationSet>
+				<AssociationSet Name="AS_PRJID_ADMNSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJID_ADMN" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJID_ADMN"/><End EntitySet="Admin_createSet" Role="ToRole_AS_PRJID_ADMN"/></AssociationSet>
+				<AssociationSet Name="AS_DDO1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_DDO1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_AS_DDO1"/><End EntitySet="DDO_CodeSet" Role="ToRole_AS_DDO1"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_PRJTIDSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_PRJTID" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_AS_AGMNT_PRJTID"/><End EntitySet="AGMNT_PROJECTIDSet" Role="ToRole_AS_AGMNT_PRJTID"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_EOAT_DSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_EOAT_D" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_AS_AGMNT_EOAT_D"/><End EntitySet="EOATSet" Role="ToRole_AS_AGMNT_EOAT_D"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_AGMNTSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_AGMNT" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_AGMNT"/><End EntitySet="Agmnt_createSet" Role="ToRole_AS_PRJT_AGMNT"/></AssociationSet>
+				<AssociationSet Name="As_par1Set" Association="ZFLM_WORKID_MAINT_SRV.As_par1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_As_par1"/><End EntitySet="Deptcode_DDOSet" Role="ToRole_As_par1"/></AssociationSet>
+				<AssociationSet Name="As_Tech_AgmntSet" Association="ZFLM_WORKID_MAINT_SRV.As_Tech_Agmnt" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_As_Tech_Agmnt"/><End EntitySet="Agmnt_createSet" Role="ToRole_As_Tech_Agmnt"/></AssociationSet>
+				<AssociationSet Name="A_BNK_DTS_AssocSet" Association="ZFLM_WORKID_MAINT_SRV.A_BNK_DTS" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TechId_CreateSet" Role="FromRole_A_BNK_DTS"/><End EntitySet="Agmnt_BnkDtlsSet" Role="ToRole_A_BNK_DTS"/></AssociationSet>
+				<AssociationSet Name="As_admin_DDOtoHOASet" Association="ZFLM_WORKID_MAINT_SRV.As_admin_DDOtoHOA" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_As_admin_DDOtoHOA"/><End EntitySet="DDOCode_HOASet" Role="ToRole_As_admin_DDOtoHOA"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_ADMINSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_ADMIN" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_ADMIN"/><End EntitySet="Project_IdSet" Role="ToRole_AS_AGRMNT_ADMIN"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_BANK_AssocSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_BANK" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_BANK"/><End EntitySet="Agmnt_BnkDtlsSet" Role="ToRole_AS_AGRMNT_BANK"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_CHLNSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_CHLN" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_AS_AGMNT_CHLN"/><End EntitySet="Challan_valSet" Role="ToRole_AS_AGMNT_CHLN"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_BANK1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_BANK1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_BANK1"/><End EntitySet="Agmnt_BnkDtlsSet" Role="ToRole_AS_AGRMNT_BANK1"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_BANK_TSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_BANK_T" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_BANK_T"/><End EntitySet="BankSet" Role="ToRole_AS_AGRMNT_BANK_T"/></AssociationSet>
+				<AssociationSet Name="AS_AGMNT_PRJTECHSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGMNT_PRJTECH" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNTSet" Role="FromRole_AS_AGMNT_PRJTECH"/><End EntitySet="AGMNT_TECHIDSet" Role="ToRole_AS_AGMNT_PRJTECH"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_EDM1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_EDM1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_EDM1"/><End EntitySet="EDM_CashSet" Role="ToRole_AS_AGRMNT_EDM1"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_TECHSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_TECH" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_TECH"/><End EntitySet="TechId_CreateSet" Role="ToRole_AS_AGRMNT_TECH"/></AssociationSet>
+				<AssociationSet Name="AS_Upload_HDRSet" Association="ZFLM_WORKID_MAINT_SRV.AS_Upload_HDR" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Upd_headerSet" Role="FromRole_AS_Upload_HDR"/><End EntitySet="Admin_createSet" Role="ToRole_AS_Upload_HDR"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_EDM_TSet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_EDM_T" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Agmnt_createSet" Role="FromRole_AS_AGRMNT_EDM_T"/><End EntitySet="EDMSet" Role="ToRole_AS_AGRMNT_EDM_T"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_AS_AGRMNT1"/><End EntitySet="TechId_CreateSet" Role="ToRole_AS_AGRMNT1"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_TECH1Set" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_TECH1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="AGMNT_PROJECTIDSet" Role="FromRole_AS_AGRMNT_TECH1"/><End EntitySet="AGMNT_TECHIDSet" Role="ToRole_AS_AGRMNT_TECH1"/></AssociationSet>
+				<AssociationSet Name="AS_DDO_HOASet" Association="ZFLM_WORKID_MAINT_SRV.AS_DDO_HOA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="DDO_CodeSet" Role="FromRole_AS_DDO_HOA"/><End EntitySet="DDO_HOASet" Role="ToRole_AS_DDO_HOA"/></AssociationSet>
+				<AssociationSet Name="AS_SCR_FUNDSet" Association="ZFLM_WORKID_MAINT_SRV.AS_SCR_FUND" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_AS_SCR_FUND"/><End EntitySet="Source_FundsSet" Role="ToRole_AS_SCR_FUND"/></AssociationSet>
+				<AssociationSet Name="As_Tech_Agmnt_cSet" Association="ZFLM_WORKID_MAINT_SRV.As_Tech_Agmnt_c" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TechId_CreateSet" Role="FromRole_As_Tech_Agmnt_c"/><End EntitySet="Agmnt_createSet" Role="ToRole_As_Tech_Agmnt_c"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_DDOCODESet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDOCODE" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_DDOCODE"/><End EntitySet="DDO_CodeSet" Role="ToRole_AS_PRJT_DDOCODE"/></AssociationSet>
+				<AssociationSet Name="AS_PayoutSet" Association="ZFLM_WORKID_MAINT_SRV.AS_Payout" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_AS_Payout"/><End EntitySet="Admin_PayoutSet" Role="ToRole_AS_Payout"/></AssociationSet>
+				<AssociationSet Name="AS_PRJT_DDOHOA_D1_AssocSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJT_DDOHOA_D1" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Project_IdSet" Role="FromRole_AS_PRJT_DDOHOA_D1"/><End EntitySet="DDOCode_HOASet" Role="ToRole_AS_PRJT_DDOHOA_D1"/></AssociationSet>
+				<AssociationSet Name="AS_Upload_PayoutSet" Association="ZFLM_WORKID_MAINT_SRV.AS_Upload_Payout" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Upd_headerSet" Role="FromRole_AS_Upload_Payout"/><End EntitySet="Admin_PayoutSet" Role="ToRole_AS_Upload_Payout"/></AssociationSet>
+				<AssociationSet Name="A_HOA2_HOA3_AssocSet" Association="ZFLM_WORKID_MAINT_SRV.A_HOA2_HOA3" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="PDHOA2Set" Role="FromRole_A_HOA2_HOA3"/><End EntitySet="PDHOA3Set" Role="ToRole_A_HOA2_HOA3"/></AssociationSet>
+				<AssociationSet Name="AS_DEDU_LISTSet" Association="ZFLM_WORKID_MAINT_SRV.AS_DEDU_LIST" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="FLM_DEDUCTSet" Role="FromRole_AS_DEDU_LIST"/><End EntitySet="DEDUCT_LISTSet" Role="ToRole_AS_DEDU_LIST"/></AssociationSet>
+				<AssociationSet Name="AS_PRJ_TECH_FSet" Association="ZFLM_WORKID_MAINT_SRV.AS_PRJ_TECH_F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Project_Id_DSet" Role="FromRole_AS_PRJ_TECH_F"/><End EntitySet="TechId_CreateSet" Role="ToRole_AS_PRJ_TECH_F"/></AssociationSet>
+				<AssociationSet Name="A_HOA1_HOA2_AssocSet" Association="ZFLM_WORKID_MAINT_SRV.A_HOA1_HOA2" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="PDHOA1Set" Role="FromRole_A_HOA1_HOA2"/><End EntitySet="PDHOA2Set" Role="ToRole_A_HOA1_HOA2"/></AssociationSet>
+				<AssociationSet Name="AS_AGRMNT_HOASet" Association="ZFLM_WORKID_MAINT_SRV.AS_AGRMNT_HOA" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="Admin_createSet" Role="FromRole_AS_AGRMNT_HOA"/><End EntitySet="HOA_F4Set" Role="ToRole_AS_AGRMNT_HOA"/></AssociationSet>
+				<AssociationSet Name="As_DDO_HOA1Set" Association="ZFLM_WORKID_MAINT_SRV.As_DDO_HOA1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="DDOCode_HOASet" Role="FromRole_As_DDO_HOA1"/><End EntitySet="Deptcode_DDOSet" Role="ToRole_As_DDO_HOA1"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZFLM_WORKID_MAINT_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZFLM_WORKID_MAINT_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

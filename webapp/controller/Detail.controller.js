@@ -13,7 +13,8 @@ sap.ui.define([
 		_onObjectMatched: function (evt) {
 			this.oDataModel = this.getOwnerComponent().getModel();
 			this.LocalModel = new sap.ui.model.json.JSONModel({
-				EmpAddrItems: []
+				EmpAddrItems: [],
+				EmpExpItems: []
 			});
 			this.getView().setModel(this.LocalModel, "LocalModel");
 
@@ -32,6 +33,7 @@ sap.ui.define([
 
 			fnSuccess = function (oData) {
 				this.LocalModel.setProperty("/EmpAddrItems", oData.NAV_EMPLOYEEHEADERTOITEM.results);
+				this.LocalModel.setProperty("/EmpExpItems", oData.Nav_EmployeeExperience.results);
 			}.bind(this);
 
 			fnError = function (err) {
@@ -74,6 +76,7 @@ sap.ui.define([
 			PayLoadObj.EmployeeAge = this.oDataModel.getProperty(this.key).EmployeeAge;
 			PayLoadObj.EmployeePosition = this.oDataModel.getProperty(this.key).EmployeePosition;
 			PayLoadObj.NAV_EMPLOYEEHEADERTOITEM = this.LocalModel.getProperty("/EmpAddrItems");
+			PayLoadObj.Nav_EmployeeExperience = this.LocalModel.getProperty("/EmpExpItems");
 
 			fnSuccess = function (oData) {
 				sap.m.MessageToast.show("Employee Address Information has been created successfuly.");

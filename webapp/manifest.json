@@ -20,6 +20,13 @@
 				"settings": {
 					"localUri": "localService/metadata.xml"
 				}
+			},
+			"ZFLM_WORKID_MAINT_SRV": {
+				"uri": "/sap/opu/odata/sap/ZFLM_WORKID_MAINT_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZFLM_WORKID_MAINT_SRV/metadata.xml"
+				}
 			}
 		}
 	},
@@ -38,7 +45,10 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_belize"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -74,12 +84,24 @@
 				},
 				"dataSource": "ZGW_EMP_DETAILS_SRV",
 				"preload": true
+			},
+			"FU": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZFLM_WORKID_MAINT_SRV",
+				"preload": true
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -91,22 +113,52 @@
 				"controlId": "mAppId",
 				"clearControlAggregation": false,
 				"bypassed": {
-					"target": ["Matser"]
+					"target": [
+						"Matser"
+					]
 				}
 			},
-			"routes": [{
-				"name": "Matser",
-				"pattern": "",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["Matser"]
-			}, {
-				"name": "Detail",
-				"pattern": "Detail/(:EmpId:)",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["Matser", "Detail"]
-			}],
+			"routes": [
+				{
+					"name": "Matser",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Matser"
+					]
+				},
+				{
+					"name": "Detail",
+					"pattern": "Detail/(:EmpId:)",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Matser",
+						"Detail"
+					]
+				},
+				{
+					"name": "Create",
+					"pattern": "Create",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Matser",
+						"Create"
+					]
+				},
+				{
+					"name": "FileUpload",
+					"pattern": "FileUpload",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Matser",
+						"FileUpload"
+					]
+				}
+			],
 			"targets": {
 				"TargetApp": {
 					"viewType": "XML",
@@ -129,6 +181,22 @@
 					"controlId": "mAppId",
 					"controlAggregation": "detailPages",
 					"viewLevel": 2
+				},
+				"Create": {
+					"viewType": "XML",
+					"viewName": "Create",
+					"viewId": "Create",
+					"viewLevel": 3,
+					"controlAggregation": "detailPages",
+					"controlId": "mAppId"
+				},
+				"FileUpload": {
+					"viewType": "XML",
+					"viewName": "FileUpload",
+					"viewId": "FileUpload",
+					"viewLevel": 3,
+					"controlAggregation": "detailPages",
+					"controlId": "mAppId"
 				}
 			}
 		}

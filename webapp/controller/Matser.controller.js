@@ -9,6 +9,18 @@ sap.ui.define([
 			this.oRouter = this.getOwnerComponent().getRouter();
 		},
 
+		onAfterRendering: function () {
+			// this.oRouter.navTo("Create", {}, true);
+		},
+
+		onBeforeRendering: function () {
+			var obj = {};
+		},
+
+		onExit: function () {
+			var obj = {};
+		},
+
 		onSelectionChange: function (evt) {
 			var oEmpId = evt.getParameter("listItem").getBindingContextPath().substr(1);
 			this.oRouter.navTo("Detail", {
@@ -16,12 +28,18 @@ sap.ui.define([
 			}, true);
 		},
 
-		onSearch: function (evt) {
-			var sQuery = evt.getParameter("value"),
-				oBindings = this.byId("mListId").getBinding("items"),
-				oList = this.byId("mListId"),
-				aFilters = [];
+		onPrsBtnAddEmp: function () {
+			this.oRouter.navTo("Create", {}, true);
+		},
 
+		onPrsBtnFileUpload: function () {
+			this.oRouter.navTo("FileUpload", {}, true);
+		},
+
+		onSearch: function (evt) {
+			var sQuery = evt.getParameter("query"),
+				oBindings = this.byId("mListId").getBinding("items"),
+				aFilters = [];
 			if (sQuery) {
 				aFilters.push(new sap.ui.model.Filter("EmployeeID", sap.ui.model.FilterOperator.Contains, sQuery));
 			}

@@ -1,39 +1,39 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
-	xmlns:semantic="sap.m.semantic" controllerName="com.sap.Matser_Detail_App.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="Detail Page"
-		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+	xmlns:semantic="sap.m.semantic" controllerName="com.sap.Matser_Detail_App.controller.Create" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:DetailPage navButtonPress="onNavBack" title="Create Employee" busy="{LocalModel>/iBusy}"
+		busyIndicatorDelay="{LocalModel>/iBusyDelay}">
 		<semantic:content>
 			<f:SimpleForm title="Employee Basic Information" minWidth="1024" editable="true" maxContainerCols="2" layout="ResponsiveGridLayout"
 				labelSpanL="5" labelSpanM="4" emptySpanL="6" emptySpanM="0" columnsL="5" columnsM="2">
 				<f:content>
 					<core:Title/>
 					<Label text="Employee ID"/>
-					<Input id="mIpEmpId" value="{EmployeeID}" editable="false">
+					<Input id="mIpEmpId" editable="false">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<Label text="Employee Name"/>
-					<Input value="{EmployeeName}" editable="false">
+					<Input id="mIpEmpNam">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<Label text="Employee Age"/>
-					<Input value="{EmployeeAge}" editable="false">
+					<Input id="mIpEmpAge">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<core:Title/>
 					<Label text="Employee Mobile"/>
-					<Input value="{EmployeeMobile}" editable="false">
+					<Input id="mIpEmpMob">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<Label text="Employee Position"/>
-					<Input value="{EmployeePosition}" editable="false">
+					<Input id="mIpEmpPos">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
