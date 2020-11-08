@@ -1,5 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
-	xmlns:semantic="sap.m.semantic" controllerName="com.sap.Matser_Detail_App.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml">
+	xmlns:semantic="sap.m.semantic" xmlns:smartTable="sap.ui.comp.smarttable" controllerName="com.sap.Matser_Detail_App.controller.Detail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="Detail Page"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
@@ -8,39 +9,39 @@
 				<f:content>
 					<core:Title/>
 					<Label text="Employee ID"/>
-					<Input id="mIpEmpId" value="{EmployeeID}" editable="false">
+					<Input id="mIpEmpId" value="{zemp_id}" editable="false">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<Label text="Employee Name"/>
-					<Input value="{EmployeeName}" editable="false">
+					<Input value="{zemp_name}" editable="false">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<Label text="Employee Age"/>
-					<Input value="{EmployeeAge}" editable="false">
+					<Input value="{zemp_age}" editable="false">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<core:Title/>
 					<Label text="Employee Mobile"/>
-					<Input value="{EmployeeMobile}" editable="false">
+					<Input value="{zemp_mobile}" editable="false">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 					<Label text="Employee Position"/>
-					<Input value="{EmployeePosition}" editable="false">
+					<Input value="{zemp_position}" editable="false">
 						<layoutData>
 							<l:GridData span="XL4 L4 M5 S12"/>
 						</layoutData>
 					</Input>
 				</f:content>
 			</f:SimpleForm>
-			<Table id="mTblEmpAdr" items="{path:'LocalModel>/EmpAddrItems'}">
+			<Table id="mTblEmpAdr" items="{ path : 'to_EmpAddress'}">
 				<headerToolbar>
 					<Toolbar>
 						<content>
@@ -54,38 +55,36 @@
 					<Column>
 						<Text text="Employee Id"/>
 					</Column>
-					<!-- demandPopin true enable the responsiveness for mobile and tablet. for this need to define the minScreenWidth -->
-					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
-						<Text text="Employee Street"/>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Street"/>
 					</Column>
-					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
-						<Text text="Employee City"/>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Text text="City"/>
 					</Column>
-					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
-						<Text text="Employee Country"/>
-					</Column>
-					<Column>
-						<Text text="Employee State"/>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Country"/>
 					</Column>
 					<Column>
-						<Text text="Employee Region"/>
+						<Text text="State"/>
+					</Column>
+					<Column>
+						<Text text="Region"/>
 					</Column>
 				</columns>
-				<!--items table aggregation-->
 				<items>
 					<ColumnListItem >
 						<cells>
-							<ObjectIdentifier title="{LocalModel>EmployeeID}"/>
-							<Input value="{LocalModel>EmployeeAddrStreet}"/>
-							<Input value="{LocalModel>EmployeeAddrCity}"/>
-							<Input value="{LocalModel>EmployeeAddrCountry}"/>
-							<Input value="{LocalModel>EmployeeAddrState}"/>
-							<Input value="{LocalModel>EmployeeAddrRegion}"/>
+							<ObjectIdentifier title="{zemp_id}"/>
+							<Input value="{zemp_addr_street}"/>
+							<Input value="{zemp_addr_city}"/>
+							<Input value="{zemp_addr_country}"/>
+							<Input value="{zemp_addr_state}"/>
+							<Input value="{zemp_addr_region}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
 			</Table>
-			<Table id="mTblEmpExp" items="{path:'LocalModel>/EmpExpItems'}">
+			<Table id="mTblEmpExp" items="{path:'to_EmpExperience'}">
 				<headerToolbar>
 					<Toolbar>
 						<content>
@@ -99,36 +98,34 @@
 					<Column>
 						<Text text="Employee Id"/>
 					</Column>
-					<!-- demandPopin true enable the responsiveness for mobile and tablet. for this need to define the minScreenWidth -->
-					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
-						<Text text="EmpCompany Code "/>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Company Code"/>
 					</Column>
-					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
-						<Text text="Emp Company Location"/>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Company Location"/>
 					</Column>
-					<Column demandPopin="true" popinDisplay="Block" minScreenWidth="Tablet">
-						<Text text="Emp Experience"/>
+					<Column demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Experience"/>
 					</Column>
 					<Column>
-						<Text text="Emp Company Name"/>
+						<Text text="Company Name"/>
 					</Column>
 				</columns>
-				<!--items table aggregation-->
 				<items>
-					<ColumnListItem >
+					<ColumnListItem>
 						<cells>
-							<ObjectIdentifier title="{LocalModel>EmployeeID}"/>
-							<Input value="{LocalModel>EmpCompanyCode}"/>
-							<Input value="{LocalModel>EmpCompanyLocation}"/>
-							<Input value="{LocalModel>EmpExperience}"/>
-							<Input value="{LocalModel>EmpCompanyName}"/>
+							<ObjectIdentifier title="{zemp_id}"/>
+							<Input value="{zemp_exp_company_code}"/>
+							<Input value="{zemp_exp_company_location}"/>
+							<Input value="{zemp_exp_years}"/>
+							<Input value="{zemp_exp_company}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
 			</Table>
 		</semantic:content>
 		<semantic:customFooterContent>
-			<Button text="Save" type="Emphasized" press="onPrsBtnSave"/>
+			<Button text="Update" type="Emphasized" press="onPrsBtnSave"/>
 		</semantic:customFooterContent>
 	</semantic:DetailPage>
 </mvc:View>

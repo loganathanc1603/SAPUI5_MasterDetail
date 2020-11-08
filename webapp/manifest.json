@@ -45,10 +45,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -77,7 +74,7 @@
 			"": {
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
-					"defaultOperationMode": "Client",
+					"defaultOperationMode": "Server",
 					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request",
 					"useBatch": true
@@ -97,11 +94,9 @@
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -113,52 +108,34 @@
 				"controlId": "mAppId",
 				"clearControlAggregation": false,
 				"bypassed": {
-					"target": [
-						"Matser"
-					]
+					"target": ["Matser"]
 				}
 			},
-			"routes": [
-				{
-					"name": "Matser",
-					"pattern": "",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"Matser"
-					]
-				},
-				{
-					"name": "Detail",
-					"pattern": "Detail/(:EmpId:)",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"Matser",
-						"Detail"
-					]
-				},
-				{
-					"name": "Create",
-					"pattern": "Create",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"Matser",
-						"Create"
-					]
-				},
-				{
-					"name": "FileUpload",
-					"pattern": "FileUpload",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"Matser",
-						"FileUpload"
-					]
-				}
-			],
+			"routes": [{
+				"name": "Matser",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Matser"]
+			}, {
+				"name": "Detail",
+				"pattern": "Detail/(:EmpId:)",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Matser", "Detail"]
+			}, {
+				"name": "Create",
+				"pattern": "Create",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Matser", "Create"]
+			}, {
+				"name": "FileUpload",
+				"pattern": "FileUpload",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Matser", "FileUpload"]
+			}],
 			"targets": {
 				"TargetApp": {
 					"viewType": "XML",

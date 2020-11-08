@@ -11,6 +11,7 @@ sap.ui.define([
 		},
 
 		_onObjectMatched: function (evt) {
+			// this.getView().setBusy(true);
 			this.oDataModel = this.getOwnerComponent().getModel();
 			this.LocalModel = new sap.ui.model.json.JSONModel({
 				EmpAddrItems: [],
@@ -19,8 +20,47 @@ sap.ui.define([
 			this.getView().setModel(this.LocalModel, "LocalModel");
 
 			this.key = "/" + evt.getParameter("arguments").EmpId;
-			this.getView().bindElement(this.key);
-			this.fetchLineItem();
+			this.getView().bindElement({
+				path: this.key,
+				parameters: {
+					"expand": "to_EmpAddress,to_EmpExperience"
+				}
+			});
+
+			// this.getView().byId("mTblEmpAdr").bindItems({
+			// 	path: this.key + "/to_EmpAddress",
+			// 	template: this.getTemplate()
+			// });
+			// this.fetchLineItem();
+		},
+
+		getTemplate: function () {
+			var oTemplate = new sap.m.ColumnListItem({
+				vAlign: "Middle",
+				cells: [
+					new sap.m.Text({
+						text: "{zemp_id}"
+					}),
+					new sap.m.Input({
+						value: "{zemp_addr_street}"
+					}),
+					new sap.m.Input({
+						value: "{zemp_addr_city}"
+					}),
+					new sap.m.Input({
+						value: "{zemp_addr_state}"
+					}),
+					new sap.m.Input({
+						value: "{zemp_addr_region}"
+					}),
+					new sap.m.Input({
+						value: "{zemp_addr_country}"
+					})
+				]
+			});
+
+			return oTemplate;
+
 		},
 
 		//fetch data for expaned line item
@@ -63,8 +103,19 @@ sap.ui.define([
 			this.LocalModel.refresh();
 		},
 
-		//Saving the deep entity complex structure for Employee address information
 		onPrsBtnSave: function () {
+			this.oDataModel.submitChanges({
+				success: function (oData) {
+					sap.m.MessageToast.show("Success");
+				},
+				error: function (err) {
+					sap.m.MessageToast.show("Error");
+				}
+			});
+		},
+
+		//Saving the deep entity complex structure for Employee address information
+		onPrsBtnSave1: function () {
 			var PayLoadObj = {},
 				fnSuccess,
 				fnError,
